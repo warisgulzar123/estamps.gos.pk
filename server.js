@@ -25,8 +25,12 @@ app.get('/', (req, res) => {
     res.json({ message: 'EStamp Server is running', db: 'MongoDB Atlas' });
 });
 
-// ── Start Server ──
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`\x1b[36mServer listening on port ${PORT}\x1b[0m`);
-});
+// ── Start Server locally; Vercel invokes the exported app ──
+if (require.main === module) {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+        console.log(`\x1b[36mServer listening on port ${PORT}\x1b[0m`);
+    });
+}
+
+module.exports = app;
