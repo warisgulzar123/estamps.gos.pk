@@ -1,0 +1,31 @@
+# ── Environment & Secrets ──────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.development
+
+# ── Node Modules ────────────────────────────────────────────────
+node_modules/
+client/node_modules/
+
+# ── Build / Dist Output ─────────────────────────────────────────
+dist/
+build/
+client/dist/
+client/build/
+
+# ── OS Junk ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Editor / IDE ────────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ── Logs ────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Misc ────────────────────────────────────────────────────────
+*.pem
+.eslintcache
