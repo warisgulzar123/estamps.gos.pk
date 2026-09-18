@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 // ── Start Server locally; Vercel invokes the exported app ──
-if (require.main === module) {
+if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`\x1b[36mServer listening on port ${PORT}\x1b[0m`);
