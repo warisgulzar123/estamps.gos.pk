@@ -51,18 +51,27 @@ app.use(async (req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ── Routes ──
-app.use('/api/estamp', estampRoutes);
-app.use('/api/stamps', estampRoutes);
+// ── Health checks ──
+app.get('/api/health', (req, res) => {
+    res.json({ message: 'EStamp Server API is running on Vercel', status: 'online' });
+});
 
-// Health check
 app.get('/api', (req, res) => {
     res.json({ message: 'EStamp Server API is running on Vercel', status: 'online' });
 });
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
+    // If not handled by static files, return status
     res.json({ message: 'EStamp Server is running', db: 'MongoDB Atlas', status: 'online' });
 });
+
+// ── Routes (Mount across multiple prefixes to eliminate any Vercel rewrite 404s) ──
+app.use('/api/estamp', estampRoutes);
+app.use('/api/stamps', estampRoutes);
+app.use('/estamp', estampRoutes);
+app.use('/stamps', estampRoutes);
+app.use('/api', estampRoutes);
+app.use('/', estampRoutes);
 
 // ── Start Server locally (Conditional for Vercel Serverless) ──
 if (process.env.NODE_ENV !== 'production') {
