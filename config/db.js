@@ -10,7 +10,7 @@ const connectDB = async () => {
     const uri = process.env.MONGO_URI;
 
     if (!uri) {
-        console.error(`${RED}✘ MONGO_URI is not defined in .env — cannot start server.${RESET}`);
+        console.error(`${RED}✘ MONGO_URI is not defined in environment variables — cannot start server.${RESET}`);
         process.exit(1);
     }
 
@@ -25,7 +25,7 @@ const connectDB = async () => {
     } catch (error) {
         if (error instanceof MongoServerError && error.code === 8000) {
             console.error(
-                `${RED}✘ Authentication Failed: Bad Authentication. Please check your MongoDB Atlas password in .env${RESET}`
+                `${RED}✘ Authentication Failed: Bad Authentication. Please check your MongoDB Atlas credentials in MONGO_URI${RESET}`
             );
         } else {
             console.error(
