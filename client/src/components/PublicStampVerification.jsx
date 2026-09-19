@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Home, PhoneCall, XCircle } from 'lucide-react';
 import logoImg from '../image/Logo-eStamp.png';
@@ -7,9 +7,11 @@ import Footer from './Footer';
 
 const PublicStampVerification = () => {
     const [searchParams] = useSearchParams();
+    const routeParams = useParams();
 
-    // ── Identifier priority: prefer MongoDB _id / stampNum, then challanNum ──
+    // ── Identifier priority: prefer route params, then MongoDB _id / stampNum, then challanNum ──
     const primaryId =
+        routeParams.id ||
         searchParams.get('id') ||
         searchParams.get('_id') ||
         searchParams.get('stampNum') ||

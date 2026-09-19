@@ -15,6 +15,18 @@ function App() {
                         element={<PublicStampVerification />}
                     />
                     <Route
+                        path="/verify/:id"
+                        element={<PublicStampVerification />}
+                    />
+                    <Route
+                        path="/verify"
+                        element={<PublicStampVerification />}
+                    />
+                    <Route
+                        path="/verification"
+                        element={<PublicStampVerification />}
+                    />
+                    <Route
                         path="/eStampCitizenPortal/Account/Login"
                         element={<Login />}
                     />

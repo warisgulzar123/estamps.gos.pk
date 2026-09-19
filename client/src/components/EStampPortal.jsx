@@ -76,15 +76,15 @@ const EStampPortal = () => {
             setBorrowerLabel(scannedBorrowerLabel);
 
             setFormData({
-                _id: dataObj._id || dataObj.id || '',
-                description: dataObj.description || '',
-                bank: dataObj.bank || '',
+                _id: dataObj._id || dataObj.id || dataObj.stampNum || '',
+                description: dataObj.description || dataObj.desc || '',
+                bank: dataObj.bank || dataObj.drawer || '',
                 bankLabel: scannedBankLabel,
-                borrower: dataObj.borrower || '',
+                borrower: dataObj.borrower || dataObj.drawee || '',
                 borrowerLabel: scannedBorrowerLabel,
                 stampDutyPaidBy: dataObj.stampDutyPaidBy || dataObj.paidBy || '',
                 stampIssueDate: dataObj.stampIssueDate || dataObj.date || '',
-                paidThroughChallan: dataObj.paidThroughChallan || dataObj.challan || '',
+                paidThroughChallan: dataObj.paidThroughChallan || dataObj.challan || dataObj.challanNum || '',
                 totalAmount: dataObj.totalAmount || dataObj.amount || '',
                 amountInWords: dataObj.amountInWords || dataObj.words || ''
             });
