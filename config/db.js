@@ -10,13 +10,21 @@ const connectDB = async () => {
     const uri = process.env.MONGO_URI;
 
     if (!uri) {
-        console.error(`${RED}✘ MONGO_URI is not defined in environment variables — cannot start server.${RESET}`);
-        process.exit(1);
+        console.error(`${RED}✘ MONGO_URI is not defined in environment variables.${RESET}`);
+        if (process.env.NODE_ENV !== 'production') {
+            process.exit(1);
+        }
+        return;
+    }
+
+    // Reuse existing connection if already established (serverless pattern)
+    if (mongoose.connection.readyState >= 1) {
+        return;
     }
 
     try {
         const conn = await mongoose.connect(uri, {
-            serverSelectionTimeoutMS: 8000,   // fail fast if Atlas is unreachable
+            serverSelectionTimeoutMS: 8000,
         });
 
         console.log(
@@ -32,7 +40,9 @@ const connectDB = async () => {
                 `${RED}✘ Real MongoDB Connection Failed: ${error.message}${RESET}`
             );
         }
-        process.exit(1);
+        if (process.env.NODE_ENV !== 'production') {
+            process.exit(1);
+        }
     }
 };
 

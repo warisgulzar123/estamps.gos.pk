@@ -6,7 +6,7 @@ const cors    = require('cors');
 const connectDB     = require('./config/db');
 const estampRoutes  = require('./routes/estampRoutes');
 
-// Connect to MongoDB Atlas (exits process on failure)
+// Connect to MongoDB Atlas
 connectDB();
 
 const app = express();
@@ -37,6 +37,16 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
 
+// Ensure MongoDB is connected before handling requests
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+    } catch (err) {
+        console.error('MongoDB connection check failed:', err.message);
+    }
+    next();
+});
+
 // ── Middleware ──
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,16 +56,21 @@ app.use('/api/estamp', estampRoutes);
 app.use('/api/stamps', estampRoutes);
 
 // Health check
+app.get('/api', (req, res) => {
+    res.json({ message: 'EStamp Server API is running on Vercel', status: 'online' });
+});
+
 app.get('/', (req, res) => {
     res.json({ message: 'EStamp Server is running', db: 'MongoDB Atlas', status: 'online' });
 });
 
-// ── Start Server (Railway / Production / Local) ──
-const PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0';
-
-app.listen(PORT, HOST, () => {
-    console.log(`\x1b[36m✔ Server listening on http://${HOST}:${PORT}\x1b[0m`);
-});
+// ── Start Server locally (Conditional for Vercel Serverless) ──
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
+    const HOST = '0.0.0.0';
+    app.listen(PORT, HOST, () => {
+        console.log(`\x1b[36m✔ Server listening on http://${HOST}:${PORT}\x1b[0m`);
+    });
+}
 
 module.exports = app;
