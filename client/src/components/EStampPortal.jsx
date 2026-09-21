@@ -17,11 +17,12 @@ import {
     DollarSign,
     FileSpreadsheet,
     X,
-    Sparkles
+    Sparkles,
+    LogOut
 } from 'lucide-react';
 import QRScanner from './QRScanner';
 
-const EStampPortal = () => {
+const EStampPortal = ({ onLogout }) => {
     const [bankLabel, setBankLabel] = useState('BANK');
     const [borrowerLabel, setBorrowerLabel] = useState('BORROWER');
 
@@ -247,6 +248,16 @@ const EStampPortal = () => {
                             <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
                             Sample Data
                         </button>
+                        {onLogout && (
+                            <button
+                                onClick={onLogout}
+                                title="Logout from Portal"
+                                className="flex items-center justify-center gap-1.5 bg-red-950/60 hover:bg-red-900/80 text-red-200 text-xs px-3 py-2 rounded-lg border border-red-800/60 transition shadow-sm cursor-pointer"
+                            >
+                                <LogOut className="w-3.5 h-3.5 text-red-300" />
+                                <span>Logout</span>
+                            </button>
+                        )}
                     </div>
                 </div>
             </header>
