@@ -48,6 +48,7 @@ const PublicStampVerification = () => {
     });
 
     useEffect(() => {
+        document.title = 'Government of Sindh - eStamping citizen Portal';
         if (!queryId) {
             setLoading(false);
             setError(true);
@@ -126,8 +127,8 @@ const PublicStampVerification = () => {
                     <header className="relative w-full bg-[#2B3990] md:bg-[#2C3686] text-white pt-0 pb-0 px-2 md:pt-0 md:pb-0 md:px-0 md:h-[82px] flex flex-col md:flex-row justify-between md:items-center overflow-hidden">
                         <div className="w-full md:hidden">
                             <div className="flex items-center w-full">
-                                <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-3">021-38892347</span>
-                                <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-6">Email: info@estamps.gos.pk</span>
+                                <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-3">021-38892347</span>
+                                <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-6">Email: info@estamps.gos.pk</span>
                             </div>
                             <div className="w-full px-1">
                                 <Link to="/eStampCitizenPortal/Account/Login" className="text-[#000000] text-[18px] tracking-normal block text-right mt-0.5 cursor-pointer">
@@ -148,7 +149,15 @@ const PublicStampVerification = () => {
                     {/* Grey Home Sub-bar */}
                     <nav className="bg-[#EBEBEB] h-[32px] border-b border-[#DDDDDD] flex items-center">
                         <div className="ml-[15px] md:ml-[45px]">
-                            <Link to="/" className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black">
+                            <Link
+                                to="/eStampCitizenPortal/GeneratePDF/StampVerification"
+                                onClick={(e) => {
+                                    if (window.location.pathname.includes('/StampVerification')) {
+                                        e.preventDefault();
+                                    }
+                                }}
+                                className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black cursor-pointer"
+                            >
                                 Home
                             </Link>
                         </div>
@@ -193,8 +202,8 @@ const PublicStampVerification = () => {
                     <div className="w-full md:hidden">
                         {/* Overlay Text Row 1 */}
                         <div className="flex items-center w-full">
-                            <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-3">021-38892347</span>
-                            <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-6">Email: info@estamps.gos.pk</span>
+                            <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-3">021-38892347</span>
+                            <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-6">Email: info@estamps.gos.pk</span>
                         </div>
                         {/* Overlay Text Row 2 */}
                         <div className="w-full px-1">
@@ -217,7 +226,15 @@ const PublicStampVerification = () => {
                 {/* Grey Home Sub-bar */}
                 <nav className="bg-[#EBEBEB] h-[32px] border-b border-[#DDDDDD] flex items-center">
                     <div className="ml-[15px] md:ml-[45px]">
-                        <Link to="/" className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black">
+                        <Link
+                            to="/eStampCitizenPortal/GeneratePDF/StampVerification"
+                            onClick={(e) => {
+                                if (window.location.pathname.includes('/StampVerification')) {
+                                    e.preventDefault();
+                                }
+                            }}
+                            className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black cursor-pointer"
+                        >
                             Home
                         </Link>
                     </div>

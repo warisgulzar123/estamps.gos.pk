@@ -39,8 +39,8 @@ const Login = () => {
                     <div className="w-full md:hidden">
                         {/* Overlay Text Row 1 */}
                         <div className="flex items-center w-full px-1">
-                            <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-3">021-38892347</span>
-                            <span className="text-[#112240] text-[12px] font-semibold tracking-tight ml-6">Email: info@estamps.gos.pk</span>
+                            <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-3">021-38892347</span>
+                            <span className="text-[#112240] text-[12px] font-normal tracking-tight ml-6">Email: info@estamps.gos.pk</span>
                         </div>
                         {/* Overlay Text Row 2 */}
                         <div className="w-full px-1">
@@ -63,7 +63,7 @@ const Login = () => {
                 {/* Grey Home Sub-bar */}
                 <nav className="bg-[#EBEBEB] h-[32px] border-b border-[#DDDDDD] flex items-center">
                     <div className="ml-[15px] md:ml-[45px]">
-                        <Link to="/" className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black">
+                        <Link to="/eStampCitizenPortal/GeneratePDF/StampVerification" className="text-[13px] text-[#333333] font-normal hover:underline hover:text-black">
                             Home
                         </Link>
                     </div>

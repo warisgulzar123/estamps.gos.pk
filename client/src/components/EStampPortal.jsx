@@ -23,16 +23,16 @@ import {
 import QRScanner from './QRScanner';
 
 const EStampPortal = ({ onLogout }) => {
-    const [bankLabel, setBankLabel] = useState('BANK');
-    const [borrowerLabel, setBorrowerLabel] = useState('BORROWER');
+    const [bankLabel, setBankLabel] = useState('Bank');
+    const [borrowerLabel, setBorrowerLabel] = useState('Borrower');
 
     const [formData, setFormData] = useState({
         _id: '',
         description: '',
         bank: '',
-        bankLabel: 'BANK',
+        bankLabel: 'Bank',
         borrower: '',
-        borrowerLabel: 'BORROWER',
+        borrowerLabel: 'Borrower',
         stampDutyPaidBy: '',
         stampIssueDate: '',
         paidThroughChallan: '',
@@ -70,8 +70,8 @@ const EStampPortal = ({ onLogout }) => {
                 }
             }
 
-            const scannedBankLabel = dataObj.bankLabel || dataObj.bl || 'BANK';
-            const scannedBorrowerLabel = dataObj.borrowerLabel || dataObj.brl || 'BORROWER';
+            const scannedBankLabel = dataObj.bankLabel || dataObj.bl || 'Bank';
+            const scannedBorrowerLabel = dataObj.borrowerLabel || dataObj.brl || 'Borrower';
 
             setBankLabel(scannedBankLabel);
             setBorrowerLabel(scannedBorrowerLabel);
@@ -169,15 +169,15 @@ const EStampPortal = ({ onLogout }) => {
 
     // Clear form fields
     const handleClear = () => {
-        setBankLabel('BANK');
-        setBorrowerLabel('BORROWER');
+        setBankLabel('Bank');
+        setBorrowerLabel('Borrower');
         setFormData({
             _id: '',
             description: '',
             bank: '',
-            bankLabel: 'BANK',
+            bankLabel: 'Bank',
             borrower: '',
-            borrowerLabel: 'BORROWER',
+            borrowerLabel: 'Borrower',
             stampDutyPaidBy: '',
             stampIssueDate: '',
             paidThroughChallan: '',
@@ -361,8 +361,8 @@ const EStampPortal = ({ onLogout }) => {
                                         setBankLabel(val);
                                         setFormData((prev) => ({ ...prev, bankLabel: val }));
                                     }}
-                                    className="bg-transparent text-[11px] sm:text-[12px] font-bold text-gray-300 uppercase tracking-wider focus:outline-none focus:border-b border-blue-500 w-full"
-                                    placeholder="BANK LABEL"
+                                    className="bg-transparent text-[11px] sm:text-[12px] font-bold text-gray-300 tracking-wider focus:outline-none focus:border-b border-blue-500 w-full"
+                                    placeholder="Bank Label"
                                 />
                             </div>
                             <input
@@ -388,8 +388,8 @@ const EStampPortal = ({ onLogout }) => {
                                         setBorrowerLabel(val);
                                         setFormData((prev) => ({ ...prev, borrowerLabel: val }));
                                     }}
-                                    className="bg-transparent text-[11px] sm:text-[12px] font-bold text-gray-300 uppercase tracking-wider focus:outline-none focus:border-b border-blue-500 w-full"
-                                    placeholder="BORROWER LABEL"
+                                    className="bg-transparent text-[11px] sm:text-[12px] font-bold text-gray-300 tracking-wider focus:outline-none focus:border-b border-blue-500 w-full"
+                                    placeholder="Borrower Label"
                                 />
                             </div>
                             <input
