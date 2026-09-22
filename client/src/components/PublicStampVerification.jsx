@@ -112,7 +112,7 @@ const PublicStampVerification = () => {
                     <div className="bg-[#DCEFE3] md:bg-[#DFF0D8] border-b border-[#D6E9C6] text-[#255932] text-[11px] md:text-[12.5px] font-[500] h-[26px] md:h-[32px] px-2 md:px-[15px] py-1 flex items-center justify-between overflow-hidden">
                         <div className="flex items-center">
                             <Home className="w-3.5 h-3.5 text-[#3b82f6] inline mr-1 flex-shrink-0" />
-                            <span className="text-[12px] text-[#222222] md:text-[12.5px] md:text-[#255932]">For Any Query:</span>
+                            <span className="text-[12px] font-normal text-[#222222] md:text-[12.5px] md:text-[#255932]">For Any Query:</span>
                             <PhoneCall className="w-3.5 h-3.5 text-[#000] inline ml-1 fill-black flex-shrink-0 md:hidden" />
                             <span className="hidden md:inline ml-1">📞 021-38892347 &nbsp; Email: info@estamps.gos.pk</span>
                         </div>
@@ -185,7 +185,7 @@ const PublicStampVerification = () => {
                 <div className="bg-[#DCEFE3] md:bg-[#DFF0D8] border-b border-[#D6E9C6] text-[#255932] text-[11px] md:text-[12.5px] font-[500] h-[26px] md:h-[32px] px-2 md:px-[15px] py-1 flex items-center justify-between overflow-hidden">
                     <div className="flex items-center">
                         <Home className="w-3.5 h-3.5 text-[#3b82f6] inline mr-1 flex-shrink-0" />
-                        <span className="text-[12px] font-medium text-[#222222] md:text-[12.5px] md:text-[#255932]">For Any Query:</span>
+                        <span className="text-[12px] font-normal text-[#222222] md:text-[12.5px] md:text-[#255932]">For Any Query:</span>
                         <PhoneCall className="w-3.5 h-3.5 text-[#000] inline ml-1 fill-black flex-shrink-0 md:hidden" />
                         <span className="hidden md:inline ml-1">📞 021-38892347 &nbsp; Email: info@estamps.gos.pk</span>
                     </div>
